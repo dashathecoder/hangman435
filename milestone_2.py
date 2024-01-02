@@ -7,10 +7,15 @@ word_list = ["apple", "kiwi", "mango", "grapes", "orange"]
 word = random.choice(word_list)
 
 #asking user for an input
-guess = input("Please enter a single letter:    ")
+def ask_input():
+    guess = input("Please enter a single letter:    ")
+    return guess
+
+guess = ask_input()
 
 #validating users input
-if len(guess) == 1 and guess.isalpha() == True:
-    print("Good guess")
+while len(guess) != 1 or guess.isalpha() == False:
+    print("Oops! That's not a valid input") 
+    guess = ask_input()
 else:
-    print("Oops! That's not a valid input")
+    print("Good guess")
